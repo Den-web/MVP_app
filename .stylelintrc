@@ -1,0 +1,16 @@
+{
+  "ignoreFiles": [
+    "node_modules/!(qin-*)/**/*.css",
+    "node_modules/qin-*/node_modules/**/*.css"
+  ],
+  "extends": "stylelint-config-standard",
+  "rules": {  
+    "indentation": 4,
+    "function-whitespace-after": null,
+    "no-descending-specificity": null,
+    "no-missing-end-of-source-newline": null,
+    "block-no-empty": null,
+    "max-empty-lines": 2,
+    "rule-empty-line-before": null
+  }
+}
