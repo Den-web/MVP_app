@@ -20,7 +20,9 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "react": "^16.13.1",
+    "react-redux": "7.2.0",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^4.1.2",
     "react-scripts": "3.4.1",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
@@ -54,5 +56,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
   }
 }
