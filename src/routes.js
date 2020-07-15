@@ -1,5 +1,5 @@
-import AddProduct from './pages/add-product';
-import Home from './pages/home';
+import AddProduct from './pages/add-product/add-product';
+import Home from './pages/home/home';
 
 const routes = [
 	{

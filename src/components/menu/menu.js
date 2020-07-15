@@ -1,23 +1,25 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
 
+import { Link } from 'react-router-dom'
 import MenuIcon from '@material-ui/icons/Menu'
 import MenuOpenIcon from '@material-ui/icons/MenuOpen'
 import IconButton from '@material-ui/core/IconButton'
 
 
 function SimpleMenu() {
-	const [anchorEl, setAnchorEl] = React.useState(null);
+	const [anchorEl, setAnchorEl] = React.useState(null)
 
 	const handleClick = (event) => {
-		setAnchorEl(event.currentTarget);
-	};
+		setAnchorEl(event.currentTarget)
+		console.log(event)
+	}
 
 	const handleClose = () => {
-		setAnchorEl(null);
-	};
+		setAnchorEl(null)
+	}
 
 	return (
 		<div>
@@ -29,8 +31,8 @@ function SimpleMenu() {
 			>
 				{
 					!Boolean(anchorEl)
-					? <MenuIcon style={{ color: 'white' }}/>
-					: <MenuOpenIcon style={{ color: 'white' }}/>
+						? <MenuIcon style={{ color: 'white' }}/>
+						: <MenuOpenIcon style={{ color: 'white' }}/>
 				}
 			</IconButton>
 			<Menu
@@ -40,12 +42,27 @@ function SimpleMenu() {
 				open={Boolean(anchorEl)}
 				onClose={handleClose}
 			>
-				<MenuItem onClick={handleClose}>Catalog</MenuItem>
-				<MenuItem onClick={handleClose}>Add product</MenuItem>
-				<MenuItem onClick={handleClose}>Logout</MenuItem>
+				<MenuItem
+					component={Link}
+					to={'/'}
+					onClick={() => {
+						handleClose()
+					}}
+				>
+					Catalog
+				</MenuItem>
+				<MenuItem
+					component={Link}
+					to={'/add-product'}
+					onClick={() => {
+						handleClose()
+					}}
+				>
+					Add product
+				</MenuItem>
 			</Menu>
 		</div>
-	);
+	)
 }
 
 SimpleMenu.propTypes = {

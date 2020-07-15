@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
 import CardHeader from '@material-ui/core/CardHeader'
 import IconButton from '@material-ui/core/IconButton'
-import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Grid from '@material-ui/core/Grid'
@@ -77,14 +75,6 @@ const Product = (product) => {
 							Description: {description}
 						</Typography>
 					</CardContent>
-					<CardActions>
-						<Button size="small" color="primary">
-							View
-						</Button>
-						<Button size="small" color="primary">
-							Edit
-						</Button>
-					</CardActions>
 				</Card>
 			</Grid>
 		</React.Fragment>
