@@ -10,8 +10,7 @@ import Home from './home'
 
 // Map store state to props
 let mapStateToProps = (state) => ({
-	isAdmin: state.roles.role,
-	infoPanel: state.infoPanel
+	role: state.roles.role,
 })
 
 // Map actions to props

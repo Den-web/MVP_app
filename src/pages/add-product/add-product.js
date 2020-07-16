@@ -24,7 +24,6 @@ constructor(props){
 	}
 }
 
-
 	handleChange = name => ({ target: { value } }) => {
 		this.setState({
 			product: {
@@ -65,7 +64,7 @@ constructor(props){
 					<Typography variant="h6" gutterBottom>
 						Add product
 					</Typography>
-					<form handleSubmit={this.handleSubmitButton}>
+					<form>
 						<Grid container spacing={3}>
 							<Grid item xs={12} sm={6}>
 								<TextField

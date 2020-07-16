@@ -82,7 +82,7 @@ const Product = (product) => {
 }
 
 Product.propTypes = {
-	classes: PropTypes.object.isRequired,
+	classes: PropTypes.object,
 }
 
 

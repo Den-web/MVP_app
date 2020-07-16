@@ -100,6 +100,7 @@ class Home extends PureComponent {
 	}
 
 	render() {
+		console.log(this.props)
 		const { productsList } = this.state
 		const productListLength = productsList.length
 		let totalSum, midTotalSum, midValue
@@ -132,7 +133,7 @@ class Home extends PureComponent {
 					{
 						productListLength === 0
 							? null
-							: <Grid spacing={4}>
+							: <Grid container spacing={4}>
 								<Panel productListLength={productListLength} deleteAll={this.clearAllProducts} totalPrice={totalSum}
 											 middlePrice={midTotalSum}/>
 							</Grid>

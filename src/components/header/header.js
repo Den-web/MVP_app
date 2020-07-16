@@ -24,7 +24,7 @@ const Header = (options) => {
 }
 
 Header.propTypes = {
-	classes: PropTypes.object.isRequired,
+	classes: PropTypes.object,
 }
 
 

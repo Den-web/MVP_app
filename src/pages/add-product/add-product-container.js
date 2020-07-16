@@ -10,8 +10,7 @@ import AddProduct from './add-product'
 
 // Map store state to props
 let mapStateToProps = (state) => ({
-	isAdmin: state.roles.role,
-	infoPanel: state.infoPanel
+	Admin: state.roles.role,
 })
 
 // Map actions to props
