@@ -110,16 +110,6 @@ constructor(props){
 							</Grid>
 						</Grid>
 					</form>
-
-					{/* {*/}
-					{/*	all_products === 0*/}
-					{/*		? null*/}
-					{/*		: <Grid spacing={4}>*/}
-					{/*			<Panel productListLength={all_products} deleteAll={this.clearAllProducts} totalPrice={total_price}*/}
-					{/*						 middlePrice={mid_total_price}/>*/}
-					{/*		</Grid>*/}
-					{/* }*/}
-
 				</Container>
 			</React.Fragment>
 		)

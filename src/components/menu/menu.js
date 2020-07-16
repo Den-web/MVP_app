@@ -57,7 +57,7 @@ function SimpleMenu(props) {
 				</MenuItem>
 
 				{
-					role !== 'admin'
+					role === 'admin'
 					? <MenuItem
 							component={Link}
 							to={'/add-product'}

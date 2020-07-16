@@ -55,7 +55,7 @@ const Product = (product) => {
 			<Grid item key={id} xs={12} sm={6} md={4}>
 				<Card className={classes.card}>
 					<CardHeader
-						action={ role !== 'admin'
+						action={ role === 'admin'
 							? <IconButton
 								onClick={() => deleteItem(i)}
 								aria-label="settings">

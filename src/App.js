@@ -4,30 +4,25 @@ import Container from '@material-ui/core/Container'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/header/header'
-
-import routes from './routes'
+import AddProduct from './pages/add-product/add-product';
+import Home from './pages/home/home';
+import PageNotFound from './pages/404/page-not-found';
+import { compose } from 'redux'
+import { connect } from 'react-redux'
 
 // import products from './api/mockProducts.json'
 
-
-
-export default class App extends PureComponent {
+class App extends PureComponent {
 
 	render() {
+		let { role } = this.props
 
 		const renderSwitch = () => (
 			<Switch>
-				{routes.map(route => {
-					const component = route.component;
-					return (
-						<Route
-							key={route.path}
-							exact={route.isExact}
-							path={route.path}
-							component={component}
-						/>
-					);
-				})}
+				{role === 'admin' ? <Route path="/add-product" component={AddProduct} /> : null}
+
+				<Route exact path="/" component={Home} />
+				<Route component={PageNotFound} />
 			</Switch>
 		);
 
@@ -46,3 +41,13 @@ export default class App extends PureComponent {
 		)
 	}
 }
+
+// Map store state to props
+let mapStateToProps = (state) => ({
+	role: state.roles.role,
+})
+
+// Expose It
+export default compose(connect(mapStateToProps, null))(
+	App
+)
