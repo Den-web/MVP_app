@@ -9,6 +9,8 @@ import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import CloseIcon from '@material-ui/icons/Close'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
 	icon: {
@@ -46,19 +48,20 @@ const Product = (product) => {
 	const classes = useStyles()
 
 
-	const { id, description, price, title, deleteItem, i } = product
+	const { id, description, price, title, deleteItem, i, role } = product
 
 	return (
 		<React.Fragment>
 			<Grid item key={id} xs={12} sm={6} md={4}>
 				<Card className={classes.card}>
 					<CardHeader
-						action={
-							<IconButton
+						action={ role !== 'admin'
+							? <IconButton
 								onClick={() => deleteItem(i)}
 								aria-label="settings">
 								<CloseIcon/>
 							</IconButton>
+							: null
 						}
 						title={title}
 					/>
@@ -83,7 +86,16 @@ const Product = (product) => {
 
 Product.propTypes = {
 	classes: PropTypes.object,
+	role: PropTypes.string,
 }
 
+// Map store state to props
+let mapStateToProps = (state) => ({
+	role: state.roles.role,
+})
 
-export default Product
+// Expose It
+export default compose(connect(mapStateToProps, null))(
+	Product
+)
+

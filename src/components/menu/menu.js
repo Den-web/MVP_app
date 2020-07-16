@@ -1,5 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
+
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 
@@ -9,7 +12,8 @@ import MenuOpenIcon from '@material-ui/icons/MenuOpen'
 import IconButton from '@material-ui/core/IconButton'
 
 
-function SimpleMenu() {
+function SimpleMenu(props) {
+	let { role } = props
 	const [anchorEl, setAnchorEl] = React.useState(null)
 
 	const handleClick = (event) => {
@@ -51,15 +55,21 @@ function SimpleMenu() {
 				>
 					Catalog
 				</MenuItem>
-				<MenuItem
-					component={Link}
-					to={'/add-product'}
-					onClick={() => {
-						handleClose()
-					}}
-				>
-					Add product
-				</MenuItem>
+
+				{
+					role !== 'admin'
+					? <MenuItem
+							component={Link}
+							to={'/add-product'}
+							onClick={() => {
+								handleClose()
+							}}
+						>
+							Add product
+						</MenuItem>
+						: null
+				}
+
 			</Menu>
 		</div>
 	)
@@ -67,7 +77,16 @@ function SimpleMenu() {
 
 SimpleMenu.propTypes = {
 	classes: PropTypes.object,
+	role: PropTypes.string,
 }
 
+// Map store state to props
+let mapStateToProps = (state) => ({
+	role: state.roles.role,
+})
 
-export default SimpleMenu
+// Expose It
+export default compose(connect(mapStateToProps, null))(
+	SimpleMenu
+)
+

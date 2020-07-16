@@ -8,8 +8,11 @@ let initialState = {
 
 const infoPanel = (state = initialState, action) => {
 	switch (action.type) {
-		case 'SET_VISIBILITY_FILTER':
-			return action.filter
+		case 'SET_CATALOG_INFO':
+			return {
+				...state,
+				...action.payload,
+			}
 		default:
 			return state
 	}

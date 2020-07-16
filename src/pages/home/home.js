@@ -105,11 +105,10 @@ class Home extends PureComponent {
 		const productListLength = productsList.length
 		let totalSum, midTotalSum, midValue
 
-
 		if (productListLength > 0) {
 			const reducer = (accumulator, currentValue) => accumulator + currentValue
 			let arr = []
-			const productListTotalPrice = productsList.map((product, index) => {
+			productsList.map((product) => {
 				this.sum(product.price)
 				arr.push(parseInt(product.price))
 				return arr
@@ -121,19 +120,19 @@ class Home extends PureComponent {
 
 		return (
 			<React.Fragment>
-				<Container maxWidth="md">
-					{/* End hero unit */}
+				<Container style={{ margin: '25px auto' }} maxWidth="md">
 					<Grid container spacing={4}>
 						{productsList.map((product, i) => (
 							<Product key={i} i={i} {...product} deleteItem={this.removeProduct}/>
 						))
 						}
 					</Grid>
-
+				</Container>
+				<Container style={{ margin: '25px auto' }} maxWidth="md">
 					{
 						productListLength === 0
 							? null
-							: <Grid container spacing={4}>
+							: <Grid container spacing={12}>
 								<Panel productListLength={productListLength} deleteAll={this.clearAllProducts} totalPrice={totalSum}
 											 middlePrice={midTotalSum}/>
 							</Grid>

@@ -60,7 +60,7 @@ constructor(props){
 		console.log(this.props, 'this.props')
 		return (
 			<React.Fragment>
-				<Container maxWidth="md">
+				<Container style={{ margin: '25px auto' }}  maxWidth="md">
 					<Typography variant="h6" gutterBottom>
 						Add product
 					</Typography>
